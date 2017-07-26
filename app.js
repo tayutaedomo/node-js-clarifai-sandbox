@@ -1,5 +1,6 @@
 var express = require('express');
 var engine = require('ejs-mate');
+var basicAuth = require('basic-auth-connect');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,6 +10,11 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 
 var app = express();
+
+var basicUsername = process.env.BASIC_USERNAME || 'username';
+var basicPassword = process.env.BASIC_PASSWORD || 'password';
+
+app.use(basicAuth(basicUsername, basicPassword));
 
 // view engine setup
 app.engine('ejs', engine);
