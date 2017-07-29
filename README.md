@@ -1,2 +1,2 @@
-# node-js-clarifai-sandbox
-Try clarifai
+# node-js-recognition-sandbox
+Try recognition services.
